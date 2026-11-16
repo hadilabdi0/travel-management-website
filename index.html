@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Veya — Schengen Visa Application Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-shell">
+
+    <aside>
+        <div>APPLICATION CENTER</div>
+        <nav aria-label="Main navigation">
+            <a href="#application">New application</a>
+            <a href="#checklist">Document checklist</a>
+            <a href="#help">Help &amp; guidance</a>
+        </nav>
+        <div>
+            <div>
+                <strong>Your journey, simplified.</strong>
+                <p>A clearer way to prepare your Schengen visa application.</p>
+            </div>
+            <div>
+                <strong>Need a hand?</strong>
+                <a href="#help">Visit help center</a>
+    </aside>
+
+    <main id="application">
+        <header>
+            <div>Application center / New Schengen application</div>
+            <div>
+                <button onclick  ="changeLanguage('en')"
+                id="languageToggle" type="button">
+                    文 <span id="languageLabel">English</span>
+
+
+                     <button onclick  ="changeLanguage('ar')"
+                id="languageToggle" type="button">
+                    文 <span id="languageLabel">arabic</span>
+
+
+                </button>
+                <button type="button" aria-label="Profile">A</button>
+            </div>
+        </header>
+
+        <section>
+            <div>
+                <div>YOUR APPLICATION STARTS HERE</div>
+                <h1>Make your next move<br>with confidence.</h1>
+                <p>
+                    A guided Schengen short-stay visa application.
+                    Take it one step at a time — you can review everything before finishing.
+                </p>
+            </div>
+            <div aria-hidden="true">
+                <div></div><div></div><div>✈</div><div>YOUR NEXT CHAPTER</div>
+            </div>
+        </section>
+
+        <section aria-label="Application progress">
+            <div>
+                <div>
+                    <span>APPLICATION PROGRESS</span>
+                    <h2 id="progressTitle">Let's get you started</h2>
+                </div>
+                <span id="stepCount">STEP 1 OF 4</span>
+            </div>
+            <div><div id="progressFill"></div></div>
+            <div>
+                <span data-label-step="0"><i>1</i> Personal details</span>
+                <span data-label-step="1"><i>2</i> Travel plans</span>
+                <span data-label-step="2"><i>3</i> Documents</span>
+                <span data-label-step="3"><i>4</i> Review</span>
+            </div>
+        </section>
+
+        <div>
+            <section>
+                <div>
+                    <div>
+                        <div id="stepEyebrow">STEP 01 · ABOUT YOU</div>
+                        <h2 id="formTitle">Personal information</h2>
+                        <p id="formDescription">
+                            Enter your details exactly as they appear in your travel document.
+                        </p>
+                    </div>
+                    <span>* Required fields</span>
+                </div>
+
+                <form id="visaForm" novalidate>
+
+                    <!-- STEP 1: PERSONAL DETAILS AND TRAVEL DOCUMENT -->
+
+                    <div data-step="0">
+                        <h3>Personal information</h3>
+                        <div>
+                            <div>
+                                <label for="surname">Surname (family name) *</label>
+                                <input id="surname" name="surname" autocomplete="family-name" required placeholder="As shown on your passport">
+                            </div>
+                            <div>
+                                <label for="surnameAtBirth">Surname at birth</label>
+                                <input id="surnameAtBirth" name="surnameAtBirth" placeholder="Former family name, if applicable">
+                            </div>
+                            <div>
+                                <label for="firstNames">First name(s) *</label>
+                                <input id="firstNames" name="firstNames" autocomplete="given-name" required placeholder="All given names on your passport">
+                            </div>
+                            <div>
+                                <label for="birthDate">Date of birth *</label>
+                                <input type="date" id="birthDate" name="birthDate" autocomplete="bday" required>
+                            </div>
+                            <div>
+                                <label for="birthPlace">Place of birth *</label>
+                                <input id="birthPlace" name="birthPlace" required placeholder="City or town">
+                            </div>
+                            <div>
+                                <label for="birthCountry">Country of birth *</label>
+                                <input id="birthCountry" name="birthCountry" required placeholder="Country">
+                            </div>
+                            <div>
+                                <label for="nationality">Current nationality *</label>
+                                <select id="nationality" name="nationality" required>
+                                    <option value="">Select nationality</option>
+                                    <option>Algerian</option><option>French</option><option>Moroccan</option>
+                                    <option>Tunisian</option><option>British</option><option>American</option>
+                                    <option>Canadian</option><option>Spanish</option><option>Italian</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="birthNationality">Nationality at birth</label>
+                                <input id="birthNationality" name="birthNationality" placeholder="If different from current nationality">
+                            </div>
+                            <div>
+                                <label for="otherNationalities">Other nationalities</label>
+                                <input id="otherNationalities" name="otherNationalities" placeholder="If applicable">
+                            </div>
+                            <div>
+                                <label for="sex">Sex *</label>
+                                <select id="sex" name="sex" required>
+                                    <option value="">Select</option><option>Female</option><option>Male</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="civilStatus">Civil status *</label>
+                                <select id="civilStatus" name="civilStatus" required>
+                                    <option value="">Select civil status</option>
+                                    <option>Single</option><option>Married</option><option>Registered partnership</option>
+                                    <option>Separated</option><option>Divorced</option><option>Widow / Widower</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="nationalId">National identity number</label>
+                                <input id="nationalId" name="nationalId" placeholder="If applicable">
+                            </div>
+                            <div>
+                                <label for="guardian">Parent / legal guardian details</label>
+                                <textarea id="guardian" name="guardian" rows="3" placeholder="Required for minors: name, address, telephone, email and nationality"></textarea>
+                            </div>
+                        </div>
+
+                        <h3>Passport / travel document</h3>
+                        <div>
+                            <div>
+                                <label for="travelDocumentType">Type of travel document *</label>
+                                <select id="travelDocumentType" name="travelDocumentType" required>
+                                    <option value="">Select document type</option>
+                                    <option>Ordinary passport</option><option>Diplomatic passport</option>
+                                    <option>Service passport</option><option>Official passport</option>
+                                    <option>Special passport</option><option>Other travel document</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="passport">Travel document number *</label>
+                                <input id="passport" name="passport" autocomplete="off" required placeholder="Enter passport number">
+                            </div>
+                            <div>
+                                <label for="passportIssueDate">Date of issue *</label>
+                                <input type="date" id="passportIssueDate" name="passportIssueDate" required>
+                            </div>
+                            <div>
+                                <label for="passportExpiryDate">Valid until *</label>
+                                <input type="date" id="passportExpiryDate" name="passportExpiryDate" required>
+                            </div>
+                            <div>
+                                <label for="passportIssuer">Issued by (country) *</label>
+                                <input id="passportIssuer" name="passportIssuer" required placeholder="Issuing country">
+                            </div>
+                        </div>
+
+                        <h3>Family member in the EU / EEA / Switzerland or qualifying UK national</h3>
+                        <p>Complete this section only if it applies to your situation.</p>
+                        <div>
+                            <div><label for="euFamilySurname">Family member's surname</label><input id="euFamilySurname" name="euFamilySurname"></div>
+                            <div><label for="euFamilyFirstNames">Family member's first name(s)</label><input id="euFamilyFirstNames" name="euFamilyFirstNames"></div>
+                            <div><label for="euFamilyBirthDate">Date of birth</label><input type="date" id="euFamilyBirthDate" name="euFamilyBirthDate"></div>
+                            <div><label for="euFamilyNationality">Nationality</label><input id="euFamilyNationality" name="euFamilyNationality"></div>
+                            <div><label for="euFamilyDocument">Travel document / ID number</label><input id="euFamilyDocument" name="euFamilyDocument"></div>
+                            <div>
+                                <label for="familyRelationship">Family relationship</label>
+                                <select id="familyRelationship" name="familyRelationship">
+                                    <option value="">Not applicable / select</option><option>Spouse</option><option>Child</option>
+                                    <option>Grandchild</option><option>Dependent ascendant</option><option>Registered partnership</option><option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: RESIDENCE, WORK AND TRAVEL PLANS -->
+
+                    <div data-step="1">
+                        <h3>Residence and contact details</h3>
+                        <div>
+                            <div>
+                                <label for="homeAddress">Home address *</label>
+                                <textarea id="homeAddress" name="homeAddress" rows="2" required placeholder="Street and house number"></textarea>
+                            </div>
+                            <div><label for="homeCity">City *</label><input id="homeCity" name="homeCity" required></div>
+                            <div><label for="postalCode">Postal code</label><input id="postalCode" name="postalCode"></div>
+                            <div><label for="residenceCountry">Country of residence *</label><input id="residenceCountry" name="residenceCountry" required placeholder="Country where you currently live"></div>
+                            <div><label for="email">Email address *</label><input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
+                            <div><label for="phone">Telephone number *</label><input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+213 ..."></div>
+                            <div>
+                                <label for="otherResidence">Do you reside in a country other than your current nationality? *</label>
+                                <select id="otherResidence" name="otherResidence" required>
+                                    <option value="">Select</option><option value="No">No</option><option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                            <div><label for="residencePermitNumber">Residence permit / equivalent number</label><input id="residencePermitNumber" name="residencePermitNumber"></div>
+                            <div><label for="residencePermitExpiry">Residence permit valid until</label><input type="date" id="residencePermitExpiry" name="residencePermitExpiry"></div>
+                        </div>
+
+                        <h3>Occupation and education</h3>
+                        <div>
+                            <div>
+                                <label for="occupation">Current occupation *</label>
+                                <select id="occupation" name="occupation" required>
+                                    <option value="">Select occupation</option><option>Student</option><option>Employed</option>
+                                    <option>Self-employed</option><option>Unemployed</option><option>Retired</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div><label for="employer">Employer / educational establishment name</label><input id="employer" name="employer" placeholder="For students, enter school or university"></div>
+                            <div><label for="employerAddress">Employer / institution address</label><textarea id="employerAddress" name="employerAddress" rows="2"></textarea></div>
+                            <div><label for="employerPhone">Employer / institution telephone</label><input type="tel" id="employerPhone" name="employerPhone"></div>
+                        </div>
+
+                        <h3>Travel details</h3>
+                        <div>
+                            <div>
+                                <label for="destination">Main destination country *</label>
+                                <select id="destination" name="destination" required>
+                                    <option value="">Choose main destination</option>
+                                    <option>France</option><option>Spain</option><option>Italy</option><option>Germany</option>
+                                    <option>Netherlands</option><option>Belgium</option><option>Portugal</option><option>Austria</option>
+                                    <option>Greece</option><option>Sweden</option><option>Switzerland</option><option>Other Schengen country</option>
+                                </select>
+                            </div>
+                            <div><label for="otherDestinations">Other Schengen destination countries</label><input id="otherDestinations" name="otherDestinations" placeholder="If applicable"></div>
+                            <div><label for="firstEntry">Country of first entry *</label><input id="firstEntry" name="firstEntry" required placeholder="First Schengen country you will enter"></div>
+                            <div>
+                                <label for="visaType">Purpose(s) of journey *</label>
+                                <select id="visaType" name="visaType" required>
+                                    <option value="">Choose purpose</option><option>Tourism</option><option>Business</option>
+                                    <option>Visiting family or friends</option><option>Cultural</option><option>Sports</option>
+                                    <option>Official visit</option><option>Medical reasons</option><option>Study</option>
+                                    <option>Airport transit</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div><label for="purposeDetails">Additional information about purpose of stay</label><textarea id="purposeDetails" name="purposeDetails" rows="3"></textarea></div>
+                            <div>
+                                <label for="entryCount">Number of entries requested *</label>
+                                <select id="entryCount" name="entryCount" required>
+                                    <option value="">Select</option><option>Single entry</option><option>Two entries</option><option>Multiple entries</option>
+                                </select>
+                            </div>
+                            <div><label for="departure">Intended arrival date *</label><input type="date" id="departure" name="departure" required></div>
+                            <div><label for="returnDate">Intended departure date *</label><input type="date" id="returnDate" name="returnDate" required></div>
+                            <div><label for="duration">Length of stay (days)</label><input id="duration" name="duration" readonly placeholder="Calculated automatically"></div>
+                        </div>
+
+                        <h3>Previous visas and travel</h3>
+                        <div>
+                            <div>
+                                <label for="fingerprints">Have your fingerprints been collected previously for a Schengen visa? *</label>
+                                <select id="fingerprints" name="fingerprints" required><option value="">Select</option><option>No</option><option>Yes</option><option>Not sure</option></select>
+                            </div>
+                            <div><label for="fingerprintDate">Date fingerprints were collected (if known)</label><input type="date" id="fingerprintDate" name="fingerprintDate"></div>
+                            <div><label for="previousVisaNumber">Previous Schengen visa number (if known)</label><input id="previousVisaNumber" name="previousVisaNumber"></div>
+                            <div><label for="previousVisas">Schengen visas issued in the past three years</label><textarea id="previousVisas" name="previousVisas" rows="2" placeholder="Visa number, issuing country and validity dates, if applicable"></textarea></div>
+                            <div><label for="previousStays">Previous stays in Schengen countries</label><textarea id="previousStays" name="previousStays" rows="2" placeholder="Countries and dates, if applicable"></textarea></div>
+                            <div><label for="finalDestinationPermit">Entry permit for final destination outside Schengen (if applicable)</label><input id="finalDestinationPermit" name="finalDestinationPermit"></div>
+                            <div><label for="permitIssuer">Issued by</label><input id="permitIssuer" name="permitIssuer"></div>
+                            <div><label for="permitValidity">Permit valid from / until</label><input id="permitValidity" name="permitValidity" placeholder="Dates, if applicable"></div>
+                        </div>
+
+                        <h3>Host, accommodation and travel costs</h3>
+                        <div>
+                            <div><label for="hostName">Inviting person / hotel / temporary accommodation name *</label><input id="hostName" name="hostName" required placeholder="If no host, enter hotel or accommodation"></div>
+                            <div><label for="address">Host / accommodation full address *</label><textarea id="address" name="address" rows="2" required placeholder="Street, city, postal code and country"></textarea></div>
+                            <div><label for="hostEmail">Host / accommodation email</label><input type="email" id="hostEmail" name="hostEmail"></div>
+                            <div><label for="hostPhone">Host / accommodation telephone</label><input type="tel" id="hostPhone" name="hostPhone"></div>
+                            <div><label for="companyName">Inviting company / organisation (if applicable)</label><input id="companyName" name="companyName"></div>
+                            <div><label for="companyAddress">Company / organisation address</label><textarea id="companyAddress" name="companyAddress" rows="2"></textarea></div>
+                            <div><label for="companyContact">Contact person in company / organisation</label><input id="companyContact" name="companyContact"></div>
+                            <div><label for="companyPhone">Company telephone</label><input type="tel" id="companyPhone" name="companyPhone"></div>
+                            <div>
+                                <label for="payer">Who will pay for travel and living costs? *</label>
+                                <select id="payer" name="payer" required><option value="">Select</option><option>Applicant</option><option>Sponsor / host</option><option>Company / organisation</option></select>
+                            </div>
+                            <div>
+                                <label for="supportMeans">Means of support (select all that apply)</label>
+                                <select id="supportMeans" name="supportMeans">
+                                    <option value="">Select main means</option><option>Cash</option><option>Traveller's cheques</option>
+                                    <option>Credit card</option><option>Pre-paid accommodation</option><option>Pre-paid transport</option>
+                                    <option>Accommodation provided</option><option>All expenses covered by sponsor</option><option>Other</option>
+                                </select>
+                            </div>
+                            <div><label for="supportDetails">Additional details about financial support</label><textarea id="supportDetails" name="supportDetails" rows="2"></textarea></div>
+                            <div><label for="insuranceProvider">Travel medical insurance provider</label><input id="insuranceProvider" name="insuranceProvider"></div>
+                            <div><label for="insuranceExpiry">Insurance valid until</label><input type="date" id="insuranceExpiry" name="insuranceExpiry"></div>
+                        </div>
+
+                        <h3>Person completing this form</h3>
+                        <p>Complete only if someone other than the applicant fills in the form.</p>
+                        <div>
+                            <div><label for="formFillerName">Full name</label><input id="formFillerName" name="formFillerName"></div>
+                            <div><label for="formFillerAddress">Address and email</label><textarea id="formFillerAddress" name="formFillerAddress" rows="2"></textarea></div>
+                            <div><label for="formFillerPhone">Telephone</label><input type="tel" id="formFillerPhone" name="formFillerPhone"></div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: DOCUMENTS -->
+
+                    <div data-step="2">
+                        <div>
+                            <div>↥</div>
+                            <div>
+                                <strong>Prepare your supporting documents</strong>
+                                <p>This demo lets you select files locally. Files are not uploaded to a server.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="passportFile">
+                                <span>▧</span>
+                                <span><strong>Passport copy *</strong><small>Identity page, clear and readable · PDF, JPG or PNG</small><em id="passportFileName">Choose a file</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="passportFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                            </label>
+                            <label for="photoFile">
+                                <span>▧</span>
+                                <span><strong>Passport-size photo *</strong><small>Recent photograph · JPG or PNG</small><em id="photoFileName">Choose a file</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="photoFile" accept=".jpg,.jpeg,.png" required>
+                            </label>
+                            <label for="bookingFile">
+                                <span>▧</span>
+                                <span><strong>Travel booking or itinerary</strong><small>Flight reservation or planned itinerary · PDF or image</small><em id="bookingFileName">Optional</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="bookingFile" accept=".pdf,.jpg,.jpeg,.png">
+                            </label>
+                            <label for="proofFile">
+                                <span>▧</span>
+                                <span><strong>Proof of accommodation</strong><small>Hotel booking or host accommodation evidence</small><em id="proofFileName">Optional</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="proofFile" accept=".pdf,.jpg,.jpeg,.png">
+                            </label>
+                            <label for="fundsFile">
+                                <span>▧</span>
+                                <span><strong>Proof of financial means</strong><small>Bank statements, sponsorship or other evidence</small><em id="fundsFileName">Optional</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="fundsFile" accept=".pdf,.jpg,.jpeg,.png">
+                            </label>
+                            <label for="insuranceFile">
+                                <span>▧</span>
+                                <span><strong>Travel medical insurance</strong><small>Insurance certificate / policy</small><em id="insuranceFileName">Optional</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="insuranceFile" accept=".pdf,.jpg,.jpeg,.png">
+                            </label>
+                            <label for="statusFile">
+                                <span>▧</span>
+                                <span><strong>Employment / student certificate</strong><small>Evidence of current occupation or studies</small><em id="statusFileName">Optional</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="statusFile" accept=".pdf,.jpg,.jpeg,.png">
+                            </label>
+                            <label for="invitationFile">
+                                <span>▧</span>
+                                <span><strong>Invitation / sponsor documents</strong><small>If applicable to your trip</small><em id="invitationFileName">Optional</em></span>
+                                <span>Browse files</span>
+                                <input type="file" id="invitationFile" accept=".pdf,.jpg,.jpeg,.png">
+                            </label>
+                        </div>
+                        <div>
+                            <span>ⓘ</span>
+                            <p>Document requirements can vary by destination and applicant circumstances. Check the relevant embassy or consulate for the exact checklist. This demo does not transmit or store selected files.</p>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: REVIEW -->
+
+                    <div data-step="3">
+                        <div>
+                            <span>✦</span>
+                            <div>
+                                <strong>One last look.</strong>
+                                <p>Review your details carefully. You can go back to make changes before finishing.</p>
+                            </div>
+                        </div>
+                        <div id="reviewContent"></div>
+                        <label>
+                            <input type="checkbox" id="confirmAccuracy">
+                            <span>I confirm that the information entered above is accurate to the best of my knowledge.</span>
+                        </label>
+                        <p>This is a university demonstration project. It does not submit a real visa application or contact any government authority.</p>
+                    </div>
+
+                    <div id="formError" role="alert" aria-live="polite"></div>
+                    <div>
+                        <button type="button" id="backBtn" hidden>← Back</button>
+                        <span>Your progress stays in this session</span>
+                        <button type="button" id="nextBtn">Continue →</button>
+                    </div>
+                </form>
+            </section>
+
+            <aside>
+                <section id="checklist">
+                    <div><span>✓</span><h3>Your checklist</h3></div>
+                    <p>A few things to have ready before you begin.</p>
+                    <ul>
+                        <li><span>1</span> Valid passport</li>
+                        <li><span>2</span> Travel dates and destination</li>
+                        <li><span>3</span> Accommodation and financial details</li>
+                        <li><span>4</span> Supporting documents</li>
+                        <li><span>5</span> Contact details</li>
+                    </ul>
+                    <div>You can move back and forth between steps.</div>
+                </section>
+                <section>
+                    <div>✧ SMART TIP</div>
+                    <h3>Small steps make it simpler.</h3>
+                    <p>Keep your passport nearby and complete your application in a quiet moment. You can review each section before you finish.</p>
+                    <div aria-hidden="true"><span>✦</span><div><i></i><i></i><i></i><b>✓</b></div></div>
+                </section>
+                <section id="help">
+                    <div>?</div>
+                    <div> help</a>
+                       <h3>
+
+                    <a href="help.html">Need help?</a></h3>
+                        <p>Not sure what a field means? Look for the small hints beneath it.</p>
+                        <a href="mailto:help@example.com">Contact demo support ↗</a>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <footer>
+            
+            <span>Privacy-first design • Accessible by design</span>
+        </footer>
+    </main>
+</div>
+
+<div id="toast" role="status" aria-live="polite">
+    <span>✓</span>
+    <div><p>Your application preview is ready. Nothing was submitted.</p></div>
+    <button id="closeToast" aria-label="Close message">×</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
